@@ -30,7 +30,7 @@ def parse_guess(raw: str):
 
 
 def check_guess(guess, secret):
-    if guess == secret:
+    if guess == int(secret):
         return "Win", "🎉 Correct!"
 
     try:
@@ -43,9 +43,10 @@ def check_guess(guess, secret):
         if g == secret:
             return "Win", "🎉 Correct!"
         if g > secret:
-            return "Too High", "📈 Go HIGHER!"
-        return "Too Low", "📉 Go LOWER!"
+            return "Too High", "📈 Go LOWER!"
+        return "Too Low", "📉 Go HIGHER!"
 
+assert check_guess(15,15)[0] == "Win"
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
     if outcome == "Win":
@@ -55,9 +56,9 @@ def update_score(current_score: int, outcome: str, attempt_number: int):
         return current_score + points
 
     if outcome == "Too High":
-        if attempt_number % 2 == 0:
-            return current_score + 5
-        return current_score - 5
+    
+        
+        return current_score - 5# fixed score logic
 
     if outcome == "Too Low":
         return current_score - 5
@@ -156,7 +157,7 @@ if submit:
         st.session_state.history.append(guess_int)
 
         if st.session_state.attempts % 2 == 0:
-            secret = str(st.session_state.secret)
+            secret = int(st.session_state.secret)# fixed type error
         else:
             secret = st.session_state.secret
 
