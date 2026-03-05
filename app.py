@@ -5,9 +5,9 @@ def get_range_for_difficulty(difficulty: str):
     if difficulty == "Easy":
         return 1, 20
     if difficulty == "Normal":
-        return 1, 100
-    if difficulty == "Hard":
         return 1, 50
+    if difficulty == "Hard":
+        return 1, 100 # fixed difficulty range
     return 1, 100
 
 
@@ -35,11 +35,11 @@ def check_guess(guess, secret):
 
     try:
         if guess > secret:
-            return "Too High", "📈 Go HIGHER!"
+            return "Too High", "📈 Go LOWER!" #fixed logic of guess
         else:
-            return "Too Low", "📉 Go LOWER!"
+            return "Too Low", "📉 Go HIGHER!" # fixed logic of guess
     except TypeError:
-        g = str(guess)
+        g = int(guess) #fixed logic of type 
         if g == secret:
             return "Win", "🎉 Correct!"
         if g > secret:
