@@ -26,12 +26,19 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+ The Game is meant to be a guessing game with three ranges of difficulty, Easy Normal and Hard. Increase in difficulty means increased in the number pool you have to guess with less attempts. If you guess in the allotted number of attempts you win, if not you have to keep guessing. If the atempts run out, you lose.
 - [ ] Detail which bugs you found.
+1.The Submit Guess originally signalled to GO Lower even on the right guess. After that was fixed, the Secret Number Changed regardless if whether the guess was right or not.
+2. The guess was originally a string
+3.Normal difficulty had a higher range of difficulty than hard and less attempts
+4. Update_score logic was flawed
 - [ ] Explain what fixes you applied.
+I changed the type of guess from string to int. I fixed the logic of submit guess . I also fixed the difficulty ranges and the nuber off attempts.
 
 ## 📸 Demo
 
 - [ ] [Insert a screenshot of your fixed, winning game here]
+![alt text](image.png)
 
 ## 🚀 Stretch Features
 
